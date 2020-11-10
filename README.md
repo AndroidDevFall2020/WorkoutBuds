@@ -127,7 +127,7 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
 [Add table of models]
 ### Networking
