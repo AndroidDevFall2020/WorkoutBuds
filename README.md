@@ -129,12 +129,14 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ## Schema 
 
 ### Models
-## Posts
+#### Posts
 | Property        | Type        | Description  |
 | ------------- |:-------------|:-----------------------------------|
 | objectId      | String       | id given to the user post          |
-| col 2 is      |       |   $12          |
-| zebra stripes | are neat      |    $1          |
+| author        |  Pointer to User|  shows username for who made the post|
+| Description | String      | description of post made by user          |
+| createdAt   | DateTime    | date when post was made |
+| updatedAt  |  
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
