@@ -129,7 +129,12 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ## Schema 
 
 ### Models
-[Add table of models]
+## Posts
+| Property        | Type        | Description  |
+| ------------- |:-------------|:-----------------------------------|
+| objectId      | String       | id given to the user post          |
+| col 2 is      |       |   $12          |
+| zebra stripes | are neat      |    $1          |
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
