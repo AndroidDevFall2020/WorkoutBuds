@@ -1,3 +1,4 @@
+
 Original App Design Project - README Template
 ===
 
@@ -127,17 +128,75 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-
 ### Models
-#### Posts
-| Property        | Type        | Description  |
-| ------------- |:-------------|:-----------------------------------|
-| objectId      | String       | id given to the user post          |
-| author        |  Pointer to User|  shows username for who made the post|
-| Description | String      | description of post made by user          |
-| createdAt   | DateTime    | date when post was made |
-| updatedAt  |  
+#### GroupChat Screen
+| Property  | Type           |Description |
+| --------  | --------       | --------   |
+| objectId  | String         | unique id for the user post        |
+|author     | Pointer to User| pointer to username of the user    |
+|description| String         | description made by author      |
+|createdAt  | DateTime       | date when post was made|
+|groupName  | String         | states the group name|
+|image      | File           | image corresponding to the group   |
+|members    | Array          | members of groupchat|
+
+#### Post 
+| Property | Type           |Description |
+| -------- | --------       | --------   |
+| objectId | String         | unique id for the user post|
+|author    | Pointer to User| pointer to username of the user|
+|caption| String| caption made by author|
+|createdAt| DateTime| date when post was made|
+|image    | file    | image file uploaded |
+
+
+#### Users
+| Property | Type      | Description |
+| -------- | --------  | -------- |
+| objectId | String    | Unique id for user    |
+| username | String    | name the user has |
+|password  | String    | password associated with user
+|createdAt | DateTime  | Date user was made |
+|Activities| Dictionary| Updates to workout counts|
+|School    | String    | School user attends|
+
+#### Chat
+| Property | Type       | Description|
+| -------- | --------   | --------   |
+| objectId | String     | unique id for the chat   |
+|createdAt | DateTime   | time the text was sent|
+|chatName  | String     | name of the chat |
+|author    |ClassPointer| pointer to messanger|
+
+
+
+
+
+
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### Network Request Outlines
+* GroupChat Screen
+   * (Read/GET) Query all groupchats
+   * (Create/POST) Create a new groupchat
+   * (Create/POST) Join a groupchat
+* Post Screen
+   * (Read/GET) Query all posts
+* Profile Screen
+   * (Read/GET) Query user info in user class
+* Chat Screen
+   * (Read/GET) Query all chats
+   * (Create/POST) Create a new chat message
+* Chat Details
+   * (Read/GET) Query all users in groupchat
+* Workout Screen
+   * (Create/POST) new workout count
+* Challenge Screen
+   * (Create/POST) new workout count
+#### Parse Snippets
+| Parse Method  |      Example      |
+|   ---         |       ---         |
+|https://docs.parseplatform.org/android/guide/#saving-objects| Creating a new post|
+|https://docs.parseplatform.org/android/guide/#queries| Fetching posts for a user's feed|
+|https://docs.parseplatform.org/android/guide/#updating-objects| Changing a user's profile image and uploading chats|
+
