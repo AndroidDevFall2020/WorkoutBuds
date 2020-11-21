@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = "LoginActivity";
@@ -29,12 +33,26 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "onClick Login Button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-
+                loginUser(username, password);
             }
         });
     }
 
-    private void loginUser(String username, String Password) {
+    private void loginUser(String username, String password) {
         Log.i(TAG, "Attempted to login user: " + username);
+        ParseUser.logInInBackground(username, password, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Issue with Login", e);
+                    return;
+                }
+                goMainActivity();
+            }
+        });
+    }
+
+    private void goMainActivity(){
+
     }
 }
