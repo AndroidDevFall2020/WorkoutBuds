@@ -27,16 +27,16 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ### 1. User Stories (Required and Optional)
 
 #### Required Must-have Stories
--[x] User can Sign Up
--[x] User can Login
--[x] User can Logout
--[x] User can view list of group chats
--[  ] User can chat in different group chats
--[  ] User can view other's profiles
--[  ] User can workout with others
--[  ] User can view his profile
--[  ] User can keep track of his records
--[  ]User can work out alone
+- [x] User can Sign Up
+- [x] User can Login
+- [x] User can Logout
+- [x] User can view list of group chats
+- [  ] User can chat in different group chats
+- [  ] User can view other's profiles
+- [  ] User can workout with others
+- [  ] User can view his profile
+- [  ] User can keep track of his records
+- [  ]User can work out alone
 
 **Optional Nice-to-have Stories**
 * User can view google maps to view others
