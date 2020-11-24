@@ -27,10 +27,10 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-* User can Sign Up
-* User can Login
-* User can Logout
-* User can view list of group chats
+*[x] User can Sign Up
+*[x]User can Login
+*[x] User can Logout
+*[x] User can view list of group chats
 * User can chat in different group chats
 * User can view other's profiles
 * User can workout with others

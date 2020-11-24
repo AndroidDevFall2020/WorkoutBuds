@@ -4,14 +4,17 @@
 
     <item
         android:id="@+id/action_home"
+        android:icon="@drawable/ic_baseline_group_24"
         android:title="Home"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_post"
+        android:icon="@drawable/ic_baseline_toc_24"
         android:title="Post"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_profile"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile"
         app:showAsAction="always" />
 </menu>
