@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.workoutbuds.GroupChatAdapter;
 import com.example.workoutbuds.R;
@@ -30,6 +31,7 @@ public class GroupChatsFragment extends Fragment {
     private RecyclerView rvGroupChats;
     private GroupChatAdapter groupChatAdapter;
     private List<ParseObject> allGroupChats;
+    private Button btnCreateGroup;
 
     public GroupChatsFragment() {}
 
@@ -43,6 +45,14 @@ public class GroupChatsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        btnCreateGroup = view.findViewById(R.id.btnCreateGroup);
+        btnCreateGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createGroup();
+            }
+        });
 
         rvGroupChats = view.findViewById(R.id.rvGroupChats);
         allGroupChats = new ArrayList<>();
@@ -66,6 +76,10 @@ public class GroupChatsFragment extends Fragment {
                 groupChatAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    private void createGroup() {
+
     }
 
 }
