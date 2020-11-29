@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -12,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.workoutbuds.GroupChatAdapter;
 import com.example.workoutbuds.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroupChatsFragment extends Fragment {
@@ -25,10 +28,10 @@ public class GroupChatsFragment extends Fragment {
     public static final String TAG = "GroupChatsFragment";
 
     private RecyclerView rvGroupChats;
+    private GroupChatAdapter groupChatAdapter;
+    private List<ParseObject> allGroupChats;
 
-    public GroupChatsFragment() {
-
-    }
+    public GroupChatsFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +45,11 @@ public class GroupChatsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvGroupChats = view.findViewById(R.id.rvGroupChats);
+        allGroupChats = new ArrayList<>();
+        groupChatAdapter = new GroupChatAdapter(getContext(), allGroupChats);
+        rvGroupChats.setAdapter(groupChatAdapter);
+        rvGroupChats.setLayoutManager(new LinearLayoutManager(getContext()));
+        queryGroups();
     }
 
     private void queryGroups() {
@@ -52,7 +60,10 @@ public class GroupChatsFragment extends Fragment {
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e != null) {
                     Log.e(TAG, "Issue with retrieving groups", e);
+                    return;
                 }
+                allGroupChats.addAll(objects);
+                groupChatAdapter.notifyDataSetChanged();
             }
         });
     }
