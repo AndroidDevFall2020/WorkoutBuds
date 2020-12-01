@@ -3,6 +3,7 @@ package com.example.workoutbuds;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +55,7 @@ public class GroupCreation extends AppCompatActivity {
             description = "No Description";
         }
         description = "- " + description;
+
         Random rand = new Random();
         int image_number = rand.nextInt(3);
         int members_count = 1;
@@ -61,7 +63,7 @@ public class GroupCreation extends AppCompatActivity {
         members = new ArrayList<>();
         members.add(ParseUser.getCurrentUser().getUsername());
 
-        ParseObject object = new ParseObject("GroupChat");
+        ParseObject object = new ParseObject(members.get(0));
         object.put("name", name);
         object.put("description", description);
         object.put("author", ParseUser.getCurrentUser());
@@ -71,7 +73,7 @@ public class GroupCreation extends AppCompatActivity {
         object.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if (e != null) {
+                if (e == null) {
                     Toast.makeText(GroupCreation.this, "GroupChat Successfully created", Toast.LENGTH_SHORT).show();
 
                 } else {
