@@ -31,7 +31,6 @@ public class ChatActivity extends AppCompatActivity {
     List<ParseObject> chats;
     ParseObject groupData;
     ChatAdapter chatAdapter;
-    Handler handler = new Handler();
 
     private RecyclerView rvChats;
     private TextView tvChatName;
@@ -39,11 +38,13 @@ public class ChatActivity extends AppCompatActivity {
     private Button btnSend;
     private EditText etItem;
 
+    Handler handler = new Handler();
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
-            // Do something here on the main thread
+            Log.i(TAG, "IT IS GOING TO WORK");
             loadChats();
+            handler.postDelayed(this, 2000);
         }
     };
 
@@ -51,8 +52,6 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
-        handler.postDelayed(runnableCode, 2000);
 
         rvChats = findViewById(R.id.rvChats);
         tvChatName = findViewById(R.id.tvChatName);
@@ -75,9 +74,11 @@ public class ChatActivity extends AppCompatActivity {
                 String message = etItem.getText().toString();
                 uploadChat(message);
                 etItem.setText("");
-                loadChats();
+                //loadChats();
             }
         });
+        loadChats();
+
     }
 
     private void loadChats() {
@@ -91,8 +92,8 @@ public class ChatActivity extends AppCompatActivity {
                     Log.e(TAG, "Couldn't get chats");
                     return;
                 }
-                chats.addAll(objects);
-                chatAdapter.notifyDataSetChanged();
+                chatAdapter.clear();
+                chatAdapter.addAll(objects);
             }
         });
     }
