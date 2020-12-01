@@ -62,7 +62,7 @@ public class GroupCreation extends AppCompatActivity {
         members = new ArrayList<>();
         members.add(ParseUser.getCurrentUser().getUsername());
 
-        ParseObject object = new ParseObject(members.get(0));
+        ParseObject object = new ParseObject("GroupChat");
         object.put("name", name);
         object.put("description", description);
         object.put("author", ParseUser.getCurrentUser());
