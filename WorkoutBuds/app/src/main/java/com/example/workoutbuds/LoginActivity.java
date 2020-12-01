@@ -14,6 +14,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+
 public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = "LoginActivity";
@@ -56,9 +57,11 @@ public class LoginActivity extends AppCompatActivity {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
+                etUsername.setText("");
+                etPassword.setText("");
                 if (e != null) {
                     Log.e(TAG, "Issue with Login", e);
-                    Toast.makeText(LoginActivity.this, "Issue with Login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Issue with sign up", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 goMainActivity();
@@ -75,4 +78,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this, RegisterActivity.class);
         startActivity(i);
     }
+
 }

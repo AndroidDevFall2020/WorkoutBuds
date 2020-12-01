@@ -66,9 +66,13 @@ public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.View
             tvGroupName.setText(groupChat.getString("name"));
             tvMembersCount.setText(Integer.toString(groupChat.getInt("members_count")) + " members");
             tvGroupDescription.setText(groupChat.getString("description"));
-            ParseFile image = groupChat.getParseFile("image");
-            if (image != null) {
-                Glide.with(context).load(image.getUrl()).into(ivGroupImage);
+            int image_number = groupChat.getInt("image_number");
+            if (image_number == 0) {
+                ivGroupImage.setImageResource(R.drawable.orangegradient);
+            } else if (image_number == 1) {
+                ivGroupImage.setImageResource(R.drawable.purplegradient);
+            } else {
+                ivGroupImage.setImageResource(R.drawable.greengradient);
             }
         }
     }

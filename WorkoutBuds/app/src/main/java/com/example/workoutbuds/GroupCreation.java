@@ -3,14 +3,18 @@ package com.example.workoutbuds;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Toast;
+
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GroupCreation extends AppCompatActivity {
 
@@ -20,17 +24,10 @@ public class GroupCreation extends AppCompatActivity {
     private EditText etGroupDescription;
     private Button btnRegisterGroup;
 
-    public void showPopupWindow(final View view) {
-        LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.activity_group_creation, null);
-
-        int width = LinearLayout.LayoutParams.MATCH_PARENT;
-        int height = LinearLayout.LayoutParams.MATCH_PARENT;
-
-        boolean focusable = true;
-
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_group_creation);
 
         etGroupName = findViewById(R.id.etGroupName);
         etGroupDescription = findViewById(R.id.etGroupDescription);
@@ -42,20 +39,47 @@ public class GroupCreation extends AppCompatActivity {
                 String name = etGroupName.getText().toString();
                 String description = etGroupDescription.getText().toString();
                 if (name == "") {
-                    Toast.makeText(view.getContext(), "Cannot leave name field blank", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupCreation.this, "Cannot leave name field blank", Toast.LENGTH_SHORT).show();
                 } else {
                     createGroup(name, description);
+                    finish();
+                }
+            }
+        });
+    }
+
+
+    public void createGroup(String name, String description) {
+        if (description == "") {
+            description = "No Description";
+        }
+        description = "- " + description;
+        Random rand = new Random();
+        int image_number = rand.nextInt(3);
+        int members_count = 1;
+        List<String> members;
+        members = new ArrayList<>();
+        members.add(ParseUser.getCurrentUser().getUsername());
+
+        ParseObject object = new ParseObject("GroupChat");
+        object.put("name", name);
+        object.put("description", description);
+        object.put("author", ParseUser.getCurrentUser());
+        object.put("members", members);
+        object.put("image_number", image_number);
+        object.put("members_count", members_count);
+        object.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    Toast.makeText(GroupCreation.this, "GroupChat Successfully created", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(GroupCreation.this, "Issue Creating GroupChat", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
     }
 
-    private void createGroup(String name, String description) {
-        if (description == "") {
-            description = "No Description";
-        }
-        description = "- " + description;
-
-    }
 }

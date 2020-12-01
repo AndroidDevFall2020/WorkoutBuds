@@ -1,5 +1,6 @@
 package com.example.workoutbuds.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.workoutbuds.GroupChatAdapter;
+import com.example.workoutbuds.GroupCreation;
 import com.example.workoutbuds.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -79,7 +81,8 @@ public class GroupChatsFragment extends Fragment {
     }
 
     private void createGroup() {
-
+        Intent i = new Intent(getContext(), GroupCreation.class);
+        startActivity(i);
     }
 
 }
