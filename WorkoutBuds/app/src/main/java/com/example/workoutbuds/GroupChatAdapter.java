@@ -1,24 +1,29 @@
 package com.example.workoutbuds;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcel;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
-import org.w3c.dom.Text;
+import org.parceler.Parcels;
 
 import java.util.List;
 
 public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.ViewHolder> {
+
+    public static final String TAG = "GroupChatAdapter";
 
     private Context context;
     private List<ParseObject> groupChats;
@@ -52,6 +57,7 @@ public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.View
         private TextView tvMembersCount;
         private TextView tvGroupDescription;
         private ImageView ivGroupImage;
+        private RelativeLayout rlGroupContainer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,12 +66,16 @@ public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.View
             tvMembersCount = itemView.findViewById(R.id.tvMembersCount);
             tvGroupDescription = itemView.findViewById(R.id.tvGroupDescription);
             ivGroupImage = itemView.findViewById(R.id.ivGroupImage);
+            rlGroupContainer = itemView.findViewById(R.id.rlGroupContainer);
+
         }
 
-        public void bind(ParseObject groupChat) {
+        public void bind(final ParseObject groupChat) {
+
             tvGroupName.setText(groupChat.getString("name"));
             tvMembersCount.setText(Integer.toString(groupChat.getInt("members_count")) + " members");
             tvGroupDescription.setText(groupChat.getString("description"));
+
             int image_number = groupChat.getInt("image_number");
             if (image_number == 0) {
                 ivGroupImage.setImageResource(R.drawable.orangegradient);
@@ -74,6 +84,23 @@ public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.View
             } else {
                 ivGroupImage.setImageResource(R.drawable.greengradient);
             }
+
+            rlGroupContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<String> members = groupChat.getList("members");
+                    String username = ParseUser.getCurrentUser().getUsername();
+
+                    if (members.contains(username)) {
+                        Intent i = new Intent(context, ChatActivity.class);
+                        i.putExtra("groupData", Parcels.wrap(groupChat));
+                        i.putExtra("groupName", groupChat.getString("name"));
+                        context.startActivity(i);
+                    }
+
+                }
+            });
+
         }
     }
 

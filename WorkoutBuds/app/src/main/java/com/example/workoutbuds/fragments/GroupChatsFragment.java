@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.workoutbuds.ChatActivity;
 import com.example.workoutbuds.GroupChatAdapter;
 import com.example.workoutbuds.GroupCreation;
 import com.example.workoutbuds.R;
