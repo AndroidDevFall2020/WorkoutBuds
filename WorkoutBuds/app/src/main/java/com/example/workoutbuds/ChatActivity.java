@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -123,8 +124,28 @@ public class ChatActivity extends AppCompatActivity {
                 if (e == null) {
                     Log.i(TAG, "Successfully uploaded Chat");
                     loadChats();
+                    joinGroup();
                 } else {
                     Log.e(TAG, "Issue uploading Chat", e);
+                }
+            }
+        });
+    }
+
+    private void joinGroup() {
+        String current_user = ParseUser.getCurrentUser().getUsername();
+        List<String> members = groupData.getList("members");
+        if (!members.contains(current_user)) {
+            members.add(current_user);
+        }
+        groupData.put("members", members);
+        groupData.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.i(TAG, "Successfully Joined Group");
+                } else {
+                    Log.i(TAG, "Issue joining group");
                 }
             }
         });
