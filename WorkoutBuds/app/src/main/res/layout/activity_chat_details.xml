@@ -23,10 +23,21 @@
         android:background="#cad0db"/>
 
     <TextView
-        android:id="@+id/tv_chat_description"
+        android:id="@+id/tv_chat_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvDesign1"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Morgan Bears" />
+
+    <TextView
+        android:id="@+id/tv_chat_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_chat_name"
         android:textSize="20sp"
         android:padding="8dp"
         tools:text="-Coming together to make athletes rise again" />
