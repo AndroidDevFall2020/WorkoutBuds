@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     tools:context=".ChatDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_chat_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        tools:srcCompat="@drawable/greengradient" />
+
+    <TextView
+        android:id="@+id/tvDesign1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/iv_chat_image"
+        android:background="#cad0db"/>
+
+    <TextView
+        android:id="@+id/tv_chat_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDesign1"
+        android:textSize="20sp"
+        android:padding="8dp"
+        tools:text="-Coming together to make athletes rise again" />
+
+    <TextView
+        android:id="@+id/tvDesign2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/tv_chat_description"
+        android:background="#cad0db"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:layout_below="@id/tvDesign2"/>
+</RelativeLayout>

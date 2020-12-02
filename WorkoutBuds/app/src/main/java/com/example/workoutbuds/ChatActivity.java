@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -42,7 +43,6 @@ public class ChatActivity extends AppCompatActivity {
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
-            Log.i(TAG, "IT IS GOING TO WORK");
             loadChats();
             handler.postDelayed(this, 2000);
         }
@@ -74,11 +74,21 @@ public class ChatActivity extends AppCompatActivity {
                 String message = etItem.getText().toString();
                 uploadChat(message);
                 etItem.setText("");
-                //loadChats();
             }
         });
-        loadChats();
 
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ChatActivity.this, ChatDetailsActivity.class);
+                i.putExtra("groupData", Parcels.wrap(groupData));
+                startActivity(i);
+            }
+        });
+
+
+        runnableCode.run();
+        loadChats();
     }
 
     private void loadChats() {
@@ -94,6 +104,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
                 chatAdapter.clear();
                 chatAdapter.addAll(objects);
+                rvChats.scrollToPosition(objects.size()-1);
             }
         });
     }
@@ -111,6 +122,7 @@ public class ChatActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Log.i(TAG, "Successfully uploaded Chat");
+                    loadChats();
                 } else {
                     Log.e(TAG, "Issue uploading Chat", e);
                 }

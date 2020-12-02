@@ -76,14 +76,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             String current_user = ParseUser.getCurrentUser().getUsername();
 
             if (messanger.equals(current_user)) {
-                Log.i(TAG, messanger + " " + current_user );
                 message_received.setVisibility(itemView.GONE);
                 sender.setVisibility(itemView.GONE);
+                message_sent.setVisibility(itemView.VISIBLE);
                 message_sent.setText(message);
             } else {
-                Log.i(TAG, current_user);
                 message_sent.setVisibility(itemView.GONE);
+                sender.setVisibility(itemView.VISIBLE);
                 sender.setText(messanger);
+                message_received.setVisibility(itemView.VISIBLE);
                 message_received.setText(message);
             }
         }

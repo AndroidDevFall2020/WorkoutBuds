@@ -57,10 +57,10 @@
         android:id="@+id/rvChats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_below="@+id/tvChatName"
+        android:layout_marginTop="15dp"
         android:layout_above="@+id/etItem"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

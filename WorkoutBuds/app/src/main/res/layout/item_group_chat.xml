@@ -16,8 +16,8 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:background="#FFFFFF"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:scaleType="fitXY"
+        tools:srcCompat="@drawable/greengradient" />
 
     <TextView
         android:id="@+id/tvGroupName"

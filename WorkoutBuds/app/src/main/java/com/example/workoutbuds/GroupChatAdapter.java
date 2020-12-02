@@ -89,12 +89,10 @@ public class GroupChatAdapter extends RecyclerView.Adapter<GroupChatAdapter.View
                     List<String> members = groupChat.getList("members");
                     String username = ParseUser.getCurrentUser().getUsername();
 
-                    if (members.contains(username)) {
-                        Intent i = new Intent(context, ChatActivity.class);
-                        i.putExtra("groupData", Parcels.wrap(groupChat));
-                        i.putExtra("groupName", groupChat.getString("name"));
-                        context.startActivity(i);
-                    }
+                    Intent i = new Intent(context, ChatActivity.class);
+                    i.putExtra("groupData", Parcels.wrap(groupChat));
+                    i.putExtra("groupName", groupChat.getString("name"));
+                    context.startActivity(i);
 
                 }
             });
