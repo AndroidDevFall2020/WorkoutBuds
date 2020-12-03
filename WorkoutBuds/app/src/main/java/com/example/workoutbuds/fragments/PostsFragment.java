@@ -59,7 +59,6 @@ public class PostsFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), ComposePostActivity.class);
                 startActivity(i);
-                queryPosts();
             }
         });
 
@@ -73,6 +72,7 @@ public class PostsFragment extends Fragment {
     private void queryPosts() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
         query.include("author");
+        query.addDescendingOrder("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {

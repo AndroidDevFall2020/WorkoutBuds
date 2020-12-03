@@ -28,10 +28,15 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 
 #### Required Must-have Stories
 - [x] User can Sign Up
+- [x] User can click sign up button
 - [x] User can Login
 - [x] User can Logout
 - [x] User can view list of group chats
-- [  ] User can chat in different group chats
+- [x] User can click to navigate to group chat
+- [x] User can chat in different group chats
+- [x] User views a list of different posts
+- [x] User can view details of the chat
+- [x] User can tap to view chat details
 - [  ] User can view other's profiles
 - [  ] User can workout with others
 - [  ] User can view his profile
@@ -49,7 +54,6 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 
 * Login Screen
    * User can login 
-   * User can view app's logo
    * User can click sign up button
 * Sign Up Screen
    * User can sign up to create account
@@ -64,14 +68,14 @@ Due to the commencement of covid 19, College athletes have been unable to partic
    * User can view his profile
    * User can keep track of his work out counts
    * User can view stats
+   * User can challenge other users
    * User can Workout alone
 * Chat Screen
    * User can chat with other Users
    * User can tap to view chat details
 * Chat Details
    * User can view details of the chat
-   * User can challenge other users
-   * User can click on other user profile to view their   profiles
+   * User can click on other user profile to view their  profiles
 * Challenge Screen
    * User can challenge other users to workout with them
    * User sees winner in the end
@@ -123,9 +127,13 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 ## Wireframes
 <img src="https://i.imgur.com/MQPHRca.jpg" width=600>
 
-### [BONUS] Digital Wireframes & Mockups
+### Video Walkthrough
 
-### [BONUS] Interactive Prototype
+Here's a walkthrough of implemented user stories:
+
+<img src='http://g.recordit.co/OfdjwEep1r.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Schema 
 ### Models
