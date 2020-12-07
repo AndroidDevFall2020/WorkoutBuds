@@ -69,6 +69,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             tvPostCaption.setText(caption);
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivPostImage);
+                ivPostImage.setClipToOutline(true);
             }
         }
     }
