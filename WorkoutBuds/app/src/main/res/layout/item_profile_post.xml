@@ -6,16 +6,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvProfilePostUsername"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="viewStart"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        tools:text="username" />
 
 
 
@@ -23,7 +13,7 @@
         android:id="@+id/ivProfilePostImage"
         android:layout_width="230dp"
         android:layout_height="220dp"
-        android:layout_below="@id/tvProfilePostUsername"
+        android:layout_marginTop="30dp"
         android:src="@drawable/iv_round_corners"
         android:scaleType="fitXY"
         tools:srcCompat="@tools:sample/avatars" />
