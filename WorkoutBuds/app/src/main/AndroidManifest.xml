@@ -33,7 +33,7 @@
         <activity android:name=".ComposePostActivity"></activity>
         <activity android:name=".ChatDetailsActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".GroupCreation" />
+        <activity android:name=".GroupCreationActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

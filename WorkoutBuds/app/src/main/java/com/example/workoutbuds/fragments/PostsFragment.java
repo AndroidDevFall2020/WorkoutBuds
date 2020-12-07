@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.workoutbuds.ComposePostActivity;
-import com.example.workoutbuds.PostAdapter;
+import com.example.workoutbuds.Adapters.PostAdapter;
 import com.example.workoutbuds.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;

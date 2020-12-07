@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GroupCreation extends AppCompatActivity {
+public class GroupCreationActivity extends AppCompatActivity {
 
-    public static final String TAG = "GroupCreation";
+    public static final String TAG = "GroupCreationActivity";
 
     private EditText etGroupName;
     private EditText etGroupDescription;
@@ -39,7 +39,7 @@ public class GroupCreation extends AppCompatActivity {
                 String name = etGroupName.getText().toString();
                 String description = etGroupDescription.getText().toString();
                 if (name == "") {
-                    Toast.makeText(GroupCreation.this, "Cannot leave name field blank", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupCreationActivity.this, "Cannot leave name field blank", Toast.LENGTH_SHORT).show();
                 } else {
                     createGroup(name, description);
                     finish();
@@ -73,10 +73,10 @@ public class GroupCreation extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if (e == null) {
-                    Toast.makeText(GroupCreation.this, "GroupChat Successfully created", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupCreationActivity.this, "GroupChat Successfully created", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(GroupCreation.this, "Issue Creating GroupChat", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupCreationActivity.this, "Issue Creating GroupChat", Toast.LENGTH_SHORT).show();
                 }
             }
         });

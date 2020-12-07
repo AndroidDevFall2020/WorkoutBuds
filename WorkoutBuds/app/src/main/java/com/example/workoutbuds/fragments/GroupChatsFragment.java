@@ -15,9 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.workoutbuds.ChatActivity;
-import com.example.workoutbuds.GroupChatAdapter;
-import com.example.workoutbuds.GroupCreation;
+import com.example.workoutbuds.Adapters.GroupChatAdapter;
+import com.example.workoutbuds.GroupCreationActivity;
 import com.example.workoutbuds.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -82,7 +81,7 @@ public class GroupChatsFragment extends Fragment {
     }
 
     private void createGroup() {
-        Intent i = new Intent(getContext(), GroupCreation.class);
+        Intent i = new Intent(getContext(), GroupCreationActivity.class);
         startActivity(i);
     }
 

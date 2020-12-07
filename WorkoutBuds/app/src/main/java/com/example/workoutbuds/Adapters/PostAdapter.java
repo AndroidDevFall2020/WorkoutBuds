@@ -1,4 +1,4 @@
-package com.example.workoutbuds;
+package com.example.workoutbuds.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.workoutbuds.R;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 

@@ -1,4 +1,4 @@
-package com.example.workoutbuds;
+package com.example.workoutbuds.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.workoutbuds.ChatActivity;
+import com.example.workoutbuds.R;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
