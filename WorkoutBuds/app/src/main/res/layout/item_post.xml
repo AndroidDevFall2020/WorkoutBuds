@@ -20,7 +20,7 @@
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_below="@id/tvPostUsername"
         android:scaleType="fitXY"
         tools:srcCompat="@tools:sample/avatars" />
