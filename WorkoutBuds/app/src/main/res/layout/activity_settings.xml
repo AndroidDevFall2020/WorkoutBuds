@@ -85,12 +85,13 @@
 
     <ImageView
         android:id="@+id/ivPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="122dp"
         android:layout_marginBottom="146dp"
+        app:srcCompat="@drawable/ic_baseline_person_24"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
