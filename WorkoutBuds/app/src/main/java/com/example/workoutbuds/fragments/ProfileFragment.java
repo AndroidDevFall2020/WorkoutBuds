@@ -1,5 +1,6 @@
 package com.example.workoutbuds.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,12 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.workoutbuds.Adapters.PostAdapter;
 import com.example.workoutbuds.Adapters.ProfilePostAdapter;
 import com.example.workoutbuds.R;
+import com.example.workoutbuds.SettingsActivity;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -40,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvProfileUsername;
     private TextView tvProfileSchool;
     private TextView tvProfileMajor;
+    private ImageView ivSettings;
     private RecyclerView rvProfilePosts;
     private TextView tvProfileSquatsInt;
     private TextView tvProfilePushUpsInt;
@@ -72,6 +76,7 @@ public class ProfileFragment extends Fragment {
         tvProfileSquatsInt = view.findViewById(R.id.tvProfileSquatsInt);
         tvProfilePushUpsInt = view.findViewById(R.id.tvProfilePushUpsInt);
         tvProfileBenchPressInt = view.findViewById(R.id.tvProfileBenchPressInt);
+        ivSettings = view.findViewById(R.id.ivSettings);
 
         ParseFile image = user.getParseFile("image");
         if (image != null) {
@@ -91,6 +96,20 @@ public class ProfileFragment extends Fragment {
         rvProfilePosts.setAdapter(profilePostAdapter);
         rvProfilePosts.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
         queryPosts();
+
+        ivSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "settings icon");
+                goSettingsActivity();
+            }
+        });
+    }
+
+    private void goSettingsActivity() {
+        Intent i = new Intent(getContext(), SettingsActivity.class);
+        startActivity(i);
+        getActivity().finish();
     }
 
     private void queryPosts(){
