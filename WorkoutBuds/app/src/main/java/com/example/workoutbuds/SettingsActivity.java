@@ -29,13 +29,12 @@ public class SettingsActivity extends AppCompatActivity {
 
     public static final String TAG = "SettingsActivity";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
+
     private EditText etSchoolName;
-    private TextView tvSettings;
     private EditText etClass;
-    private EditText etProfilePic;
-    private Button btnBack;
     private ImageView ivPicture;
     private Button btnUpdate;
+
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -43,21 +42,11 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
         etSchoolName = findViewById(R.id.etSchoolName);
-        tvSettings = findViewById(R.id.tvSettings);
         etClass = findViewById(R.id.etClass);
-        etProfilePic = findViewById(R.id.etProfilePic);
-        btnBack = findViewById(R.id.btnBack);
         ivPicture = findViewById(R.id.ivPicture);
         btnUpdate = findViewById(R.id.btnUpdate);
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick back button");
-                goMainActivity();
-            }
-        });
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,17 +62,14 @@ public class SettingsActivity extends AppCompatActivity {
                 UpdateSettings();
             }
         });
+
         ivPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launchCamera();
             }
         });
-    }
 
-    private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
     }
 
     private void UpdateSettings() {
@@ -103,9 +89,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 
     private void launchCamera() {

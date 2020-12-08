@@ -109,7 +109,6 @@ public class ProfileFragment extends Fragment {
     private void goSettingsActivity() {
         Intent i = new Intent(getContext(), SettingsActivity.class);
         startActivity(i);
-        getActivity().finish();
     }
 
     private void queryPosts(){
