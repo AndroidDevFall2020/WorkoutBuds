@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -50,6 +52,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Log.i(TAG, "onClick update button");
                 etClass.getText();
                 etSchoolName.getText();
+                UpdateSettings();
             }
         });
     }
@@ -59,5 +62,23 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void UpdateSettings() {
+        ParseUser user = ParseUser.getCurrentUser();
+        String school = etSchoolName.getText().toString();
+        String className = etClass.getText().toString();
+        user.put("School", school);
+        user.put("major", className);
+        user.saveEventually(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.i(TAG, "Successfully got updated");
+                    finish();
+                } else {
+                    Log.i(TAG, "Could not get updated");
+                }
+            }
+        });
+    }
 
 }
