@@ -134,6 +134,7 @@ Here's a walkthrough of implemented user stories:
 <img src='http://g.recordit.co/ZVrMLdSf56.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/Kv5DtgXLNa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/YYoI7nyQNw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src ='https://recordit.co/drA4GPyayJ.gif' title = 'Video Walkthrough' width = '' alt = 'Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
