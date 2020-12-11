@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
@@ -78,6 +79,7 @@ public class SettingsActivity extends AppCompatActivity {
         String className = etClass.getText().toString();
         user.put("School", school);
         user.put("major", className);
+        user.put("image", new ParseFile(photoFile));
         user.saveEventually(new SaveCallback() {
             @Override
             public void done(ParseException e) {
