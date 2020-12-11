@@ -78,7 +78,7 @@ public class ChatDetailsActivity extends AppCompatActivity {
 
     private void queryUsers() {
         ParseQuery<ParseUser> query = ParseUser.getQuery();
-        query.whereContainsAll("username", groupOccupants);
+        query.whereContainedIn("username", groupOccupants);
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> objects, ParseException e) {

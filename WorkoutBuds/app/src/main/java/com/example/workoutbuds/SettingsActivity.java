@@ -60,7 +60,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 etClass.getText();
                 etSchoolName.getText();
-                UpdateSettings();
+                UpdateSettings(photoFile);
             }
         });
 
@@ -73,7 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    private void UpdateSettings() {
+    private void UpdateSettings(File photoFile) {
         ParseUser user = ParseUser.getCurrentUser();
         String school = etSchoolName.getText().toString();
         String className = etClass.getText().toString();

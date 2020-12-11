@@ -1,6 +1,8 @@
 package com.example.workoutbuds.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.workoutbuds.ProfileActivity;
 import com.example.workoutbuds.R;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -49,7 +54,7 @@ public class ChatDetailAdapter extends RecyclerView.Adapter<ChatDetailAdapter.Vi
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView member_image;
+        private com.mikhaellopez.circularimageview.CircularImageView member_image;
         private TextView member_name;
         private TextView member_school;
 
@@ -61,7 +66,7 @@ public class ChatDetailAdapter extends RecyclerView.Adapter<ChatDetailAdapter.Vi
             member_school = itemView.findViewById(R.id.member_school);
         }
 
-        public void bind(ParseUser member) {
+        public void bind(final ParseUser member) {
             String name = member.getUsername();
             String school = member.getString("School");
             ParseFile image = member.getParseFile("image");
@@ -70,6 +75,16 @@ public class ChatDetailAdapter extends RecyclerView.Adapter<ChatDetailAdapter.Vi
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(member_image);
             }
+            member_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "onClick member image");
+
+                    Intent i = new Intent(context, ProfileActivity.class);
+                    i.putExtra("userData", Parcels.wrap(member));
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }

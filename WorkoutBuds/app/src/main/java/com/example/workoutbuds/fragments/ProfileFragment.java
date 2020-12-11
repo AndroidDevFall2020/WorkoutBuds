@@ -78,18 +78,7 @@ public class ProfileFragment extends Fragment {
         tvProfileBenchPressInt = view.findViewById(R.id.tvProfileBenchPressInt);
         ivSettings = view.findViewById(R.id.ivSettings);
 
-        ParseFile image = user.getParseFile("image");
-        if (image != null) {
-            Glide.with(getContext()).load(image.getUrl()).into(ivProfileImage);
-            ivProfileImage.setClipToOutline(true);
-        }
-
-        tvProfileUsername.setText(user.getUsername());
-        tvProfileSchool.setText(user.getString("School"));
-        tvProfileMajor.setText(user.getString("major"));
-        tvProfileSquatsInt.setText("Squats: " + Integer.toString(user.getInt("squats")));
-        tvProfileBenchPressInt.setText("BenchPress: " + Integer.toString(user.getInt("BenchPress")));
-        tvProfilePushUpsInt.setText("PushUps: " + Integer.toString(user.getInt("PushUps")));
+        populateView();
 
         posts = new ArrayList<>();
         profilePostAdapter = new ProfilePostAdapter(getContext(), posts);
@@ -102,8 +91,24 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Log.i(TAG, "settings icon");
                 goSettingsActivity();
+                populateView();
             }
         });
+    }
+
+    private void populateView() {
+        ParseFile image = user.getParseFile("image");
+        if (image != null) {
+            Glide.with(getContext()).load(image.getUrl()).into(ivProfileImage);
+            ivProfileImage.setClipToOutline(true);
+        }
+
+        tvProfileUsername.setText(user.getUsername());
+        tvProfileSchool.setText(user.getString("School"));
+        tvProfileMajor.setText(user.getString("major"));
+        tvProfileSquatsInt.setText("Squats: " + Integer.toString(user.getInt("squats")));
+        tvProfileBenchPressInt.setText("BenchPress: " + Integer.toString(user.getInt("BenchPress")));
+        tvProfilePushUpsInt.setText("PushUps: " + Integer.toString(user.getInt("PushUps")));
     }
 
     private void goSettingsActivity() {
