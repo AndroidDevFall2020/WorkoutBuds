@@ -58,8 +58,6 @@ public class SettingsActivity extends AppCompatActivity {
                     return;
                 }
 
-                etClass.getText();
-                etSchoolName.getText();
                 UpdateSettings(photoFile);
             }
         });
@@ -80,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
         user.put("School", school);
         user.put("major", className);
         user.put("image", new ParseFile(photoFile));
-        user.saveEventually(new SaveCallback() {
+        user.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e == null) {

@@ -38,6 +38,14 @@ public class GroupChatsFragment extends Fragment {
     public GroupChatsFragment() {}
 
     @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+
+        queryGroups();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -74,6 +82,7 @@ public class GroupChatsFragment extends Fragment {
                     Log.e(TAG, "Issue with retrieving groups", e);
                     return;
                 }
+                allGroupChats.clear();
                 allGroupChats.addAll(objects);
                 groupChatAdapter.notifyDataSetChanged();
             }

@@ -54,6 +54,14 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+
+        populateView();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -117,7 +125,6 @@ public class ProfileFragment extends Fragment {
     }
 
     private void queryPosts(){
-//        String username = user.getUsername();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
         query.include("author");
         query.whereEqualTo("author", user);
