@@ -12,7 +12,7 @@ Original App Design Project - README Template
 
 ## Overview
 ### Description
-Due to the commencement of covid 19, College athletes have been unable to participate in various trainings and activities thereby causing loss in body shape and tuition scholarships. Our app, Workout Buds, brings athletes all over the state together to help stay in shape while also having a fun comradery while also preserving scholarships.
+Due to the commencement of covid 19, College athletes have been unable to participate in various trainings and activities thereby causing loss in body shape and tuition scholarships. Our app, Workout Buds, brings athletes all over the state together to help stay in shape while also having a fun comradery while also preserving scholarships. To ensure this, our app makes use of ML and poseestimation models to examine each workout the user performs and automatically counts the number of reps he/ she performs.
 
 ### App Evaluation
 - **Category:** Fitness & Social
