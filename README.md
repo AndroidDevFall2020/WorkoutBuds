@@ -37,11 +37,10 @@ Due to the commencement of covid 19, College athletes have been unable to partic
 - [x] User views a list of different posts
 - [x] User can view details of the chat
 - [x] User can tap to view chat details
-- [  ] User can view other's profiles
-- [  ] User can workout with others
-- [  ] User can view his profile
-- [  ] User can keep track of his records
-- [  ]User can work out alone
+- [x] User can view other's profiles
+- [x] User can view his profile
+- [x] User can keep track of his records in his profile
+- [x]User can work out alone
 
 **Optional Nice-to-have Stories**
 * User can view google maps to view others
